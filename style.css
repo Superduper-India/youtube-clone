@@ -1,0 +1,219 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+    --padding: 12px 18px;
+    --header-color: white;
+    --entire-color: black;
+    --grey-color: rgba(0,0,0,0.5);
+    --hashtag-highlight-color: #1e5fd6;
+    --border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+
+
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+}
+nav {
+    background-color: black;
+    width: 100%;
+    color: var(--header-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding);
+    font-size: 20px;
+}
+.navbar__column1 {
+    display: flex;
+    align-items: center;
+}
+.navbar__column1 i {
+    color:red;
+}
+.navbar__column1 h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+.navbar__column1 h1,
+.navbar__column2 i {
+    margin-left: 4px;
+}
+header>img {
+    width: 100%;
+}
+.video-control {
+    display: flex;
+    flex-direction: column;
+    color: var(--header-color);
+    background-color: black;
+    padding: var(--padding);
+    margin:0;
+}
+.video-control__action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+.action__column1 span {
+    margin-left: 18px;
+}
+.action__column2 i {
+    margin-left: 36px;
+}
+.action__time {
+    padding-bottom: 20px;
+}
+.action__time-passed {
+    position: absolute;
+    background-color: var(--header-color);
+    width: 20%;
+    height: 6px;
+    border-radius: 2px;
+}
+.action__time-left {
+    position: absolute;
+    right:12px;
+    background-color: rgba(255,255,255,0.7);
+    width: 80%;
+    height: 6px;
+    border-radius: 2px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding);
+    padding-bottom: 0;
+}
+.main__hashtags {
+    color: var(--hashtag-highlight-color);
+    margin-bottom: 10px;
+}
+.main__video-description {
+    display: flex;
+}
+.video-description__column1 h2 {
+    margin-bottom: 8px;
+    margin-right: 16px;
+    font-size: 18px;
+}
+.video-description__column1 span {
+    color: var(--grey-color);
+    font-size: 14px;
+}
+.video-description__column2 {
+    color: var(--grey-color);
+}
+.main__video-action {
+    display: flex;
+    justify-content: space-around;
+    padding: 24px 0;
+    border-bottom: var(--border-bottom);
+}
+.video-action__column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--grey-color);
+}
+.video-action__column i {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+.video-action__column span {
+    color: black;
+    font-size: 14px;
+}
+.main__channel {
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--border-bottom);
+}
+.channel__column1 {
+    display: flex;
+    align-items: center;
+}
+.channel__column1 img {
+    width:40px;
+    height: 40px;
+    border-radius: 20px;
+}
+.channel__column1-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+}
+.channel__column1-text h2 {
+    margin-bottom: 4px;
+}
+.channel__column1-text span {
+    color: var(--grey-color);
+    font-size: 14px;
+}
+.channel__column2 {
+    text-decoration: none;
+}
+.channel__column2:visited {
+    color: black; /* 클릭하고 난 후 글자색*/
+}
+
+footer {
+    padding: var(--padding);
+    padding-top: 0;
+}
+footer>h3 {
+    color: var(--grey-color);
+    font-size: 16px;
+    margin: 12px 0;
+}
+.footer__section1 {
+    display: flex;
+    justify-content: space-between;
+}
+.footer__section1-detail {
+    display: flex;
+}
+.footer__section1-detail img {
+    width: 180px;
+    height: 100px;
+}
+.footer__section1-text {
+    margin-left: 12px;
+    margin-right: 16px;
+    display: flex;
+    flex-direction: column;
+}
+.footer__section1-text h4 {
+    margin-bottom: 4px;
+}
+.footer__section1-text span {
+    color: var(--grey-color);
+    font-size: 14px;
+}
+
+/* 화면창 너비 768px이상일때 */ 
+@media screen and (min-width:768px) {
+    .wrap-main-footer {
+        display: flex;
+        justify-content: space-between;
+    }
+    main, footer {
+        width:50%;
+    }
+    main {
+        padding-bottom: 150px;
+    }
+    footer {
+        padding-top: 20px;
+    }
+}
