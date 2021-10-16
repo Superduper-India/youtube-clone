@@ -1,208 +1,242 @@
 @import "reset.css";
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
 
 :root {
-    --padding: 12px 18px;
-    --header-color: white;
-    --entire-color: black;
-    --grey-color: rgba(0,0,0,0.5);
-    --hashtag-highlight-color: #1e5fd6;
-    --border-bottom: 1px solid rgba(0,0,0,0.25);
+    /*패딩값*/
+    --header-padding: 16px 24px;
+    --padding: 24px;
+    --width-padding: 0 24px;
+    /*보더라인*/
+    --border-bottom: 1px solid rgba(255,255,255,0.1);
+
+    /*다양한 그레이톤*/
+    --header-color: #202020;
+    --background-color: #181818;
+    --warm-grey: #313131;
+    --darker-grey: #181818;
+    --light-grey: #9b9b9b;
+    /*폰트 및 아이콘색*/
+    --fontIcon-color:#ffffff;
+    /*유튜브로고, 구독박스*/
+    --red-color: #ff0000;
+    --darker-red: #cc0100;
+    /*해쉬태그색*/
+    --hashtag-color: #3da6ff;
+
+    /*사이즈*/
+    --icon-size: 24px;
+    --titleFont-size: 24px;
+    --regularFont-size: 18px;
+    --pFont-size: 14px; /*나중에 더 좋은이름으로 바꾸자.*/
+    --smallFont-size: 12px;
 }
 
 
-* {
+* { 
     box-sizing: border-box;
 }
 body {
     display: flex;
     flex-direction: column;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif; /*font Roboto 300 400*/
+    background-color: var(--background-color);
 }
-nav {
-    background-color: black;
-    width: 100%;
-    color: var(--header-color);
+a {
+    text-decoration: none;
+}
+a:hover,
+button:hover {
+    cursor:pointer; /*링크,버튼 가르켰을때 손가락모양 커서*/
+}
+
+
+header {
+    background-color: var(--header-color); /*박스칼라*/
+    color: var(--fontIcon-color); /*글씨색*/
+    width: 100%; /*박스너비*/
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--padding);
-    font-size: 20px;
+    padding: var(--header-padding); /*상하 16px 좌우 24px*/
+    font-size: var(--titleFont-size);
+    position: sticky; /*상단에 헤더고정*/
+    top:0; /*헤더고정값*/
 }
-.navbar__column1 {
-    display: flex;
-    align-items: center;
+.header__title {
+    display: flex; /*가로정렬*/
+    align-items: center; /*수직기준으로 평행하게*/
 }
-.navbar__column1 i {
-    color:red;
+.header__title i { /*유튜브아이콘*/
+    color:var(--red-color);
+    font-size: var(--icon-size);
 }
-.navbar__column1 h1 {
+.header__title h1 { /*타이틀 YouTube*/
     font-size: 24px;
-    font-weight: 600;
-}
-.navbar__column1 h1,
-.navbar__column2 i {
+    font-weight: 500;
     margin-left: 4px;
 }
-header>img {
-    width: 100%;
+.header__title h1,
+.header__icons i {
+    margin-left: 4px;
 }
-.video-control {
-    display: flex;
-    flex-direction: column;
-    color: var(--header-color);
-    background-color: black;
-    padding: var(--padding);
-    margin:0;
+.header__title a:visited,
+.header__icons a:visited {
+    color: var(--fontIcon-color);
 }
-.video-control__action {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 18px;
-    margin-bottom: 18px;
+
+
+video {
+    padding:var(--padding); /*패딩값 상하좌우24px*/
+    max-width: 950px; /*비디오 너비 최대값 950px*/
 }
-.action__column1 span {
-    margin-left: 18px;
+.video {
+    text-align: center; /*비디오 가운데로 정렬*/
 }
-.action__column2 i {
-    margin-left: 36px;
-}
-.action__time {
-    padding-bottom: 20px;
-}
-.action__time-passed {
-    position: absolute;
-    background-color: var(--header-color);
-    width: 20%;
-    height: 6px;
-    border-radius: 2px;
-}
-.action__time-left {
-    position: absolute;
-    right:12px;
-    background-color: rgba(255,255,255,0.7);
-    width: 80%;
-    height: 6px;
-    border-radius: 2px;
-}
+
 
 main {
     display: flex;
-    flex-direction: column;
-    padding: var(--padding);
-    padding-bottom: 0;
+    flex-direction: column; /*콘텐츠 세로정렬*/
+    padding:var(--padding); /*패딩값 상하좌우 24px*/
+    padding-top: 0; /*패딩값 윗쪽만 없애기*/
+    color: var(--fontIcon-color); /*폰트색깔 흰색*/
 }
-.main__hashtags {
-    color: var(--hashtag-highlight-color);
-    margin-bottom: 10px;
+main a:visited { /*main콘텐츠 클릭 후*/
+    color: var(--fontIcon-color);
 }
-.main__video-description {
-    display: flex;
+/*main(1) info*/
+main .info { /*info: hashtags, title, action*/
+    border-bottom: var(--border-bottom); /*하단 보더라인추가*/
+    padding-bottom: 18px; /*아랫쪽 패딩값 18px*/
 }
-.video-description__column1 h2 {
-    margin-bottom: 8px;
-    margin-right: 16px;
-    font-size: 18px;
+main .info__hashtags { /*해시태그*/
+    color: var(--hashtag-color);
+    font-size: var(--smallFont-size);
+    margin-bottom: 8px; /*영상타이틀로부터 8px간격*/
 }
-.video-description__column1 span {
-    color: var(--grey-color);
-    font-size: 14px;
+main .info__title { /*영상타이틀*/
+    margin-bottom: 18px; /*액션으로부터 18px간격*/
+    font-size: var(--regularFont-size);
 }
-.video-description__column2 {
-    color: var(--grey-color);
-}
-.main__video-action {
-    display: flex;
-    justify-content: space-around;
-    padding: 24px 0;
-    border-bottom: var(--border-bottom);
-}
-.video-action__column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--grey-color);
-}
-.video-action__column i {
-    font-size: 18px;
-    margin-bottom: 12px;
-}
-.video-action__column span {
-    color: black;
-    font-size: 14px;
-}
-.main__channel {
-    padding: 24px 0;
+main .info__action { /*액션:조회수,업로드날짜 + icons*/
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: var(--border-bottom);
 }
-.channel__column1 {
+main .info__action span { /*조회수, 업로드날짜*/
+    color: var(--light-grey);
+    font-size: var(--pFont-size);
+}
+main .info__action-icons {
     display: flex;
-    align-items: center;
+    align-items: center; /*수직기준 아이콘 가운데정렬*/
+    font-size: var(--regularFont-size);
 }
-.channel__column1 img {
-    width:40px;
-    height: 40px;
-    border-radius: 20px;
+main .info__action-icon {
+    margin-left: 24px;
 }
-.channel__column1-text {
+main .info__action-icon span {
+    color: var(--fontIcon-color);
+    margin-left: 6px;
+}
+
+/*main(2) channel*/
+main .channel {
     display: flex;
-    flex-direction: column;
-    margin-left: 8px;
+    padding: 18px 0; /*패딩값 상하18px 좌우0*/
+    border-bottom: var(--border-bottom); /*밑쪽 보더라인*/
+    justify-content: space-between; /*채널인포와 버튼 양끝위치*/
+    align-items: flex-start; /*세로(수직)기준으로 맨위에 정렬*/
 }
-.channel__column1-text h2 {
-    margin-bottom: 4px;
+main .channel__info {
+    display: flex; /*채널이미지와 텍스트 옆쪽으로 놓이게*/
 }
-.channel__column1-text span {
-    color: var(--grey-color);
-    font-size: 14px;
+main .channel__info img{ /*채널이미지*/
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
 }
-.channel__column2 {
-    text-decoration: none;
+main .channel__info-text { /*채널텍스트*/
+    display: flex;
+    flex-direction: column; /*세로정렬*/
+    margin-left: 12px; /*채널이미지로부터 12px 떨어뜨리기*/
 }
-.channel__column2:visited {
-    color: black; /* 클릭하고 난 후 글자색*/
+main .channel__info-text span:first-child { /*채널명*/
+    font-size: var(--pFont-size);
+    margin-bottom: 4px; /*밑쪽 마진 4px*/
+    text-transform: uppercase; /*소문자를 대문자로 바꾸기*/
+    font-weight: 500;
 }
+main .channel__info-text span:nth-child(2) { /*구독자수*/
+    color: var(--light-grey);
+    font-size: var(--smallFont-size);
+    margin-bottom: 24px; /*영상소개글로부터 24px간격두기*/
+}
+main .channel__info-text__data p { /*영상소개글*/
+    font-size: var(--pFont-size);
+    margin-bottom: 32px; /*더보기로부터 32px간격두기*/
+    width: 459px;
+}
+main .channel__info-text__data span { /*더보기*/
+    color: var(--light-grey);
+    font-size: var(--pFont-size);
+}
+main .channel button { /*구독버튼*/
+    font-size: var(--smallFont-size);
+    color: var(--fontIcon-color);
+    background-color: var(--darker-red);
+    width: 71px;
+    height: 37px;
+    border-radius: 2px;
+    outline: 0; /*버튼 테두리 없애기*/
+    border: 0; /*버튼 테두리 없애기*/
+}
+
 
 footer {
-    padding: var(--padding);
-    padding-top: 0;
-}
-footer>h3 {
-    color: var(--grey-color);
-    font-size: 16px;
-    margin: 12px 0;
-}
-.footer__section1 {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /*footer__box 세로정렬*/
+    padding: var(--padding); /*패딩값 상하좌우 24px*/
+    padding-top: 0; /*???*/
+    color: var(--fontIcon-color);
 }
-.footer__section1-detail {
+.footer__box { /*첫번째 박스: boxInfo+boxIcon*/
     display: flex;
+    justify-content: space-between; /*boxInfo와 boxIcon 양끝쪽으로*/
 }
-.footer__section1-detail img {
-    width: 180px;
-    height: 100px;
-}
-.footer__section1-text {
-    margin-left: 12px;
-    margin-right: 16px;
+.footer__boxInfo {
     display: flex;
-    flex-direction: column;
+    align-items: flex-start; /*수직기준 상단위치*/
 }
-.footer__section1-text h4 {
-    margin-bottom: 4px;
+.footer__boxInfo img { /*첫번째 박스 이미지*/
+    width: 168px;
+    height: 94px;
 }
-.footer__section1-text span {
-    color: var(--grey-color);
-    font-size: 14px;
+.footer__boxInfo-text { /*첫번째 박스 텍스트*/
+    display: flex;
+    margin: 0 8px; /*마진 상하0 좌우8px*/
+    flex-direction: column; /*텍스트 수직배치*/
+}
+.footer__boxInfo-text span:first-child { /*첫번째 박스 타이틀*/
+    margin-bottom: 6px; /*채널명과 간격 8px*/
+    line-height: 150%; /*타이틀 줄간격 150%*/
+    font-size: var(--pFont-size);
+    font-weight: 500;
+}
+.footer__boxInfo-text span:nth-child(2){ /*첫번째 박스 채널명*/
+    margin-bottom: 4px; /*영상정보와 간격 4px*/
+}
+.footer__boxInfo-text span:nth-child(2), /*첫번째 박스 채널명*/
+.footer__boxInfo-text span:last-child { /*첫번쩨 박스 영상정보*/
+    color: var(--light-grey);
+    font-size: var(--smallFont-size);
+}
+.footer__boxIcon a:visited { /*첫번째 박스 아이콘 클릭후*/
+    color: var(--fontIcon-color);
 }
 
-/* 화면창 너비 768px이상일때 */ 
-@media screen and (min-width:768px) {
+/* 화면창 너비 950px이상일때 */ 
+@media screen and (min-width:950px) {
     .wrap-main-footer {
         display: flex;
         justify-content: space-between;
